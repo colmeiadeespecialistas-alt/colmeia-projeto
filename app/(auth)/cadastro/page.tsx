@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,7 @@ import { Select } from "@/components/ui/select";
 import { Wrench } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 
-export default function CadastroPage() {
+function CadastroForm() {
   const searchParams = useSearchParams();
   const defaultRole = searchParams.get("tipo") === "especialista" ? "specialist" : "client";
 
